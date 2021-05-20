@@ -1,12 +1,15 @@
-require 'rest-client'
+require 'open-uri'
 
 # the Le Wagon copy of the API
 url = 'http://tmdb.lewagon.com/movie/top_rated'
-rest_reponse = RestClient.get(url)
-response = JSON.parse(rest_reponse.body)
+response = JSON.parse(URI.open(url).read)
 
 response['results'].each do |movie_hash|
   puts
   p movie_hash
   # create an instance with the hash
+  # Movie.create!(
+  #   poster_url: "https://image.tmdb.org/t/p/w500" + movie_hash['poster_path']
+  #   ...
+  # )
 end
