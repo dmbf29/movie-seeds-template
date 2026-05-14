@@ -13,7 +13,7 @@ puts "Creating movies.... \n"
     puts "...creating the movie #{movie_hash['title']}..."
     puts
     # create an instance with the hash
-    Movie.create!(
+    Movie.create(
       poster_url: "https://image.tmdb.org/t/p/w500" + movie_hash['poster_path'],
       rating: movie_hash['vote_average'],
       title: movie_hash['title'],
